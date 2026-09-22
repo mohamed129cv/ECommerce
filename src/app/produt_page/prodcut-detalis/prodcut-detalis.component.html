@@ -1,0 +1,107 @@
+<section class="product_details">
+  <div class="container">
+    <article class="product">
+      <div class="img-box">
+        <img [src]="imgSrc" [alt]="product.title">
+
+      </div>
+      <section class="product-informtion">
+        <p class="cate">{{product.category}}</p>
+        <h3 class="title">{{product.title}}</h3>
+        <div class="badges">
+          <p class="badg-discount">{{product.discountPercentage}}% Save</p>
+          <p class="badg-seller" *ngIf="product.rating >= 4.3"> Bast Seller </p>
+        </div>
+        <div class="retaing">
+          <i class="fa-solid fa-star"></i>
+          <span>{{product.rating}}</span>
+        </div>
+        <div class="price-party">
+          <p class="discount-price">${{(product.price - ((product.price * product.discountPercentage) /
+            100)).toFixed(2)}}</p>
+          <p class="main-price">${{product.price}}</p>
+
+        </div>
+        <p class="dis">{{product.description}}</p>
+        <div class="quantity">
+          <span class="head">Quantity : </span>
+          <button [disabled]="inCart" class="btn" (click)="increaseQuantity()">+</button>
+          <span class="count">{{count}}</span>
+          <button [disabled]="inCart" class="btn" (click)="decreaseQuantity()">-</button>
+        </div>
+
+        <div class="tools">
+          @if (inCart) {
+
+          <button type="btn" class="btn show" [routerLink]="'/page/cart'">
+
+            <i class="fa-solid fa-cart-shopping"></i> Show cart </button>
+          }@else {
+
+          <button type="btn" class="btn" (click)="addToCart()">
+
+            <i class="fa-solid fa-cart-shopping"></i> Add to cart </button>
+          }
+          <span (click)="addToFavourite()" [class.favourite]="isFavorite "> <i class="fa-solid fa-heart"></i> </span>
+          <span> <i class="fa-solid fa-share-nodes"></i> </span>
+        </div>
+      </section>
+    </article>
+    <article class="images">
+      @for(img of product.images ; track $index){
+      <div class="img-box">
+
+        <img [src]="img" [alt]="product.title" (click)="imgSrc = img">
+      </div>
+      }
+    </article>
+    <article class="end">
+      <ul class="header">
+        <li (click)="endType = 'dis' " [class.active]="endType == 'dis' ">Description</li>
+        <li (click)="endType = 'reviwe' " [class.active]="endType == 'reviwe' ">Reviews</li>
+      </ul>
+      @switch (endType) {
+      @case ('dis') {
+
+      <div class="dis-ses">
+        <p>{{product.description}}</p>
+        <ul class="tags">
+
+          @for( tag of product.tags ; track $index){
+          <li>{{tag}}</li>
+          }
+        </ul>
+      </div>
+      }
+      @case ('reviwe') {
+
+      <div class="reviwes">
+        @for(reviwe of product.reviews ; track $index){
+        <div class="user-reviwe">
+
+          <div class="detalis">
+            <div class="user-data">
+              <span class="icon"> {{reviwe.reviewerName[0]}}</span>
+              <h6 class="user-name">{{reviwe.reviewerName}}
+              </h6>
+              <span class="verified"
+                [ngClass]="reviwe.reviewerEmail!= '' || reviwe.reviewerEmail!=null ? 'active' : 'unactive' ">
+                @if(reviwe.reviewerEmail!= '' || reviwe.reviewerEmail!=null ) {
+                Verified
+                }@else {
+                Un Verified
+                }
+              </span>
+            </div>
+            <p class="date">{{reviwe.date | date : 'd/M/yyyy' }}</p>
+          </div>
+          <p class="user-comment">{{reviwe.comment}}</p>
+        </div>
+        }
+      </div>
+      }
+      }
+
+    </article>
+  </div>
+</section>

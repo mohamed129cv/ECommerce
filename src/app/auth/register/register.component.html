@@ -1,0 +1,46 @@
+<section class="register-page">
+   <header>
+    <p class="brand-name" [routerLink]="'/page/home'">
+    <span class="icon"><i class="fa-solid fa-bolt"></i></span>
+      <span class="text">Nexus</span>
+      Commerce
+    </p>
+    <div class="text-center" >
+      <h3>Create an account</h3>
+      <p class="dis">Join millions of happy shoppers</p>
+    </div>
+  </header>
+  <form [formGroup]="newUser" (ngSubmit)="createUser()" >
+    <div class="fild name">
+      <div class="first-name">
+        <label for="f-name" class="form-label">First Name</label>
+        <input formControlName="firstName" type="text" class="form-control" id="f-name" placeholder="Jone">
+      </div>
+      <div class="last-name">
+        <label for="l-name" class="form-label">last Name</label>
+        <input formControlName="lastName" type="text" class="form-control" id="l-name" placeholder="Cooper">
+      </div>
+    </div>
+    <div class="fild">
+      <label for="email">Email address</label>
+      <input formControlName="email" type="text" class="form-control" id="email" placeholder="you@example.com">
+
+    </div>
+
+    <div class="fild">
+      <div class="password-lable">
+        <label for="password" class="form-label">Password</label>
+      <span class="forgot">Forgot password?</span>
+
+      </div>
+      <div class="password-fild">
+        <i [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye' " class="fa-solid fa-eye"  (click)="showPassword = !showPassword"></i>
+        <input formControlName="password" [type]=" showPassword ? 'text' : 'password' " class="form-control"  id="password" placeholder="Min 6 charcters">
+      </div>
+
+    </div>
+     <button type="submit" class="btn">Sign Up</button>
+    <p class="qution">Already have an account? <span [routerLink]="'/auth/login'">Sign In </span></p>
+
+  </form>
+</section>

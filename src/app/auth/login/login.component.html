@@ -1,0 +1,36 @@
+<section class="login-page">
+  <header>
+    <p class="brand-name" [routerLink]="'/page/home'">
+    <span class="icon"><i class="fa-solid fa-bolt"></i></span>
+      <span class="text">Nexus</span>
+      Commerce
+    </p>
+    <div class="text-center" >
+      <h3>Welcome back</h3>
+      <p class="dis">Sign in to your account</p>
+    </div>
+  </header>
+  <form [formGroup]="login" (ngSubmit)="submitLogin()" >
+    <div class="fild">
+      <label for="email" class="form-label">Email Address</label>
+      <input type="email" id="email" placeholder="jane@example.com" class="form-control" formControlName="email" >
+    </div>
+
+    <div class="fild">
+
+      <div class="password-lable">
+        <label for="password" class="form-label">Password</label>
+      <span class="forgot">Forgot password?</span>
+
+      </div>
+      <div class="password-fild">
+        <i [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye' " class="fa-solid fa-eye"  (click)="showPassword = !showPassword"></i>
+        <input [type]=" showPassword ? 'text' : 'password' " class="form-control"  id="password" placeholder="Enter your password" formControlName="password">
+      </div>
+
+    </div>
+    <button type="submit" class="btn">Sign In</button>
+    <p class="qution">Don't have an account? <span [routerLink]="'/auth/register'">Sign up for free</span></p>
+
+  </form>
+</section>

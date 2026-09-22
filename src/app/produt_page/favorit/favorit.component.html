@@ -1,0 +1,33 @@
+<section class="favorite-page">
+  <div class="container">
+    <header>
+        <h6>Your wishlist</h6>
+        <button type="button" class="btn clear-all" (click)=" clearFavorivte()"><i class="fa-regular fa-trash-can"></i>Clear
+        All</button>
+    </header>
+    <div class="grid">
+
+      @for (product of products; track $index) {
+        <article class="product"  >
+          <span class="del" (click)="removeFavorivte(product.id)"><i class="fa-regular fa-trash-can"></i></span>
+          <div class="img-box" [routerLink]="'/page/product/'+product.id">
+            <img [src]="product.Image" alt="">
+          </div>
+          <div class="body">
+
+            <h4 [routerLink]="'/page/product/'+product.id">{{product.title}}</h4>
+          </div>
+        </article>
+      }@empty {
+         <div class="empty-cart">
+      <span><i class="fa-solid fa-box-open"></i></span>
+      <h3>Your wishlist is empty</h3>
+      <p>Explore our products and save your favorites..</p>
+      <button class="btn" [routerLink]="'/page/product'">    Continue Shopping      </button>
+    </div>
+      }
+    </div>
+
+  </div>
+
+</section>

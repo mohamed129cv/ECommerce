@@ -1,0 +1,89 @@
+<section class="protfile">
+  <div class="container">
+
+    <header>
+      <div class="img-box">
+        <p class="img">
+          @if (userData) {
+            {{userData.firstName.charAt(0) }}
+          }
+        </p>
+      </div>
+    <div class="body">
+      @if (userData) {
+
+        <h6>{{userData.firstName}} {{ userData.lastName}}</h6>
+        <p>{{userData.email}}</p>
+      }@else {
+
+        <h6>Loading</h6>
+        <p>Loading</p>
+      }
+      <div class="btns">
+        <button class="btn" [routerLink]="'/user/setting'"  >Edit Profile </button>
+        <button class="btn" (click)="singOut()">Logout </button>
+      </div>
+
+    </div>
+
+  </header>
+  <section class="states">
+    <div>
+      <i class="fa-solid fa-heart"></i>
+      <p>
+        @if(userData){
+          {{favourite['items'].length}}
+        }@else {
+          0
+        }
+      </p>
+    </div>
+    <div>
+      <i class="fa-solid fa-cart-shopping"></i>
+      <p>
+        @if (cart) {
+          {{cart['items'].length}}
+        }@else {
+          0
+        }
+      </p>
+    </div>
+  </section>
+  <section class="informtion">
+
+    <h3>Account Information</h3>
+    <div class="grid">
+        @if (userData) {
+
+         <p class="lname"><span>Fisrt Name : </span>{{userData.firstName || "No data to display"}}</p>
+         <p class="fname"><span>Last Name : </span>{{userData.lastName || "No data to display"}}</p>
+        }@else {
+          <p class="lname"><span>Fisrt Name : </span>  No data to display</p>
+          <p class="fname"><span>Last Name : </span>No data to display</p>
+        }
+
+
+        @if (userData) {
+          <p class="phone"><span>Email : </span>{{userData.email || "No data to display"}}</p>
+          <p class="phone"><span>Phon Number : </span>{{userData.phone || "No data to display"}}</p>
+        }@else {
+
+          <p class="phone"><span>Email : </span>No data to display</p>
+          <p class="phone"><span>Phon Number : </span>No data to display</p>
+        }
+
+      @if (userData) {
+
+        <p class="address" ><span>Country : </span>{{userData.Country || "No data to display"}}</p>
+        <p class="address" ><span>city : </span>{{userData.city || "No data to display"}}</p>
+        <p class="address" ><span>Address : </span>{{userData.address || "No data to display"}}</p>
+      }@else {
+        <p class="address" ><span>Country : </span>No data to display</p>
+        <p class="address" ><span>city : </span>No data to display</p>
+        <p class="address" ><span>Address : </span>No data to display</p>
+      }
+    </div>
+  </section>
+</div>
+
+</section>

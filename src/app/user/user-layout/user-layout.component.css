@@ -1,0 +1,104 @@
+*{
+  margin: 0;padding: 0;box-sizing: border-box ;
+}
+.user-layout {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  position: relative;
+  min-height: 110vh;
+}
+.setting {
+  position: fixed;
+  bottom: 100px;
+  right: 40px;
+  width: 40px;
+  height: 40px;
+  background-color: var(--dark-card);
+  color: var(--main-color);
+  transition: var(--transition);
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 900;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  pointer-events: none;
+}
+.setting:hover {
+  background-color: var(--main-color);
+  color: var(--white);
+}
+.setting i{
+  transition: var(--transition);
+}
+.setting i.active{
+  transform: rotate(90deg);
+}
+.lr{
+  background-color: rgba(0, 0, 0, .7);
+  cursor: pointer;
+  height: 100vh;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  opacity: 0;;
+
+}
+aside {
+  width: 15%;
+  height: 90.7vh;
+
+  border-right: 1px solid var(--dark-border);
+  background-color: var(--card);
+  color: var(--secondary);
+  position: sticky;
+  top: 60px;
+  transition: var(--transition);
+}
+.user-layout .body {
+  flex: 1;
+}
+
+aside ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+aside ul li {
+  width: 100%;
+  padding: 1rem;
+  cursor: pointer;
+  color: var(--Text-muted);
+  transition: var(--transition);
+}
+aside ul li.active , aside ul li:hover {
+  background-color: var(--main-color);
+  color: var(--secondary);
+}
+
+@media screen and (max-width: 792px) {
+  .setting {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  aside {
+    opacity: 0;
+    width: 0;
+    position: fixed;
+  }
+  aside.active {
+    width: 25%;
+    opacity: 1;
+  }
+  .lr{
+    opacity: 1;
+    pointer-events: auto;
+    width: 100%;
+  }
+}

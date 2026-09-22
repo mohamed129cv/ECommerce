@@ -1,0 +1,78 @@
+*{
+  box-sizing: border-box;
+}
+footer {
+  background-color: var(--dark-bg);
+  padding: 1rem;
+  border-top: 1px solid var(--dark-border);
+}
+.footer-content{
+  display: grid;
+  grid-template-columns: repeat(auto-fill , minmax(350px , 1fr));
+  justify-content: space-between;
+  gap: 30px;
+  padding: 2.5rem 0 ;
+}
+
+.brand-name{
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+.brand-name .icon {
+  width: 40px;
+  height: fit-content;
+  padding: 0.3rem;
+  color: var(--secondary);
+  background-color: var(--main-color);
+  border-radius: 0.5rem;
+
+}
+.brand-name .text {
+  color: var(--main-color);
+  margin-left:  10px;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+}
+ul li {
+  cursor: pointer;
+  color: var(--Text-muted);
+  transition: var(--transition);
+}
+ul li:hover {
+  color: var(--secondary);
+}
+
+article h4 {
+  font-size: 1rem;
+  font-weight: 500;
+  }
+.dis{
+  color: var(--Text-muted);
+  font-size: .8rem;
+}
+.cpoy-right{
+  border-top: 1px solid var(--dark-border) ;
+  display: flex;
+  place-items: center;
+  color: var(--Text-muted);
+  padding: 1rem 0;
+
+}
+.socil{
+  display: flex;
+  gap: 10px;
+  color: var(--Text-muted);
+
+}
+.socil i{
+  transition: var(--transition);
+  cursor: pointer;
+}
+.socil i:hover{
+  color: var(--main-color);
+}
+

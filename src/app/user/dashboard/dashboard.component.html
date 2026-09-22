@@ -1,0 +1,79 @@
+<section class="hero">
+  <div class="container">
+    <article class="hero-body">
+
+      <div class="item">
+        <i class="fa-solid fa-users"></i>
+        <h3>{{ allUsers.length }}</h3>
+        <span>Total Users</span>
+      </div>
+
+      <div class="item">
+        <i class="fa-solid fa-user-shield"></i>
+        <h3>{{ adminCount }}</h3>
+        <span>Admins</span>
+      </div>
+
+      <div class="item">
+        <i class="fa-solid fa-user"></i>
+        <h3>{{ userCount }}</h3>
+        <span>Normal Users</span>
+      </div>
+
+      <div class="item">
+        <i class="fa-solid fa-user-plus"></i>
+        <h3>{{ recentUsers }}</h3>
+        <span>Recent Users</span>
+      </div>
+    </article>
+  </div>
+</section>
+<section class="users">
+  <div class="container">
+    <div class="header">
+      <input type="text" placeholder="Search By Email & Phone Number or User Id ..." class="form-control search"
+        (input)="search($any($event.target).value)">
+      <i class="fa-solid fa-arrows-rotate"></i>
+    </div>
+    <!-- Table Header -->
+    <div class="table-header">
+      <p class="name">Name</p>
+      <p class="email">Email</p>
+      <p class="phone">Phone</p>
+      <p class="role">Role</p>
+      <p>Actions</p>
+    </div> <!-- Table Body -->
+    <div class="table-body"> @for (user of displayPage() ; track user.id) { <div class="user-row">
+        <p class="name"> {{ user.firstName }} {{ user.lastName }} </p>
+        <p class="email"> {{ user.email }} </p>
+        <p class="phone"> {{ user.phone || '---' }} </p>
+        <p class="role"> <select [value]="user.role" (change)="updateUserRole(user , $any($event.target).value )">
+            <option value="admin"> Admin </option>
+            <option value="user"> User </option>
+          </select> </p>
+        <p class="actions-cell"> <button type="button" class="delete-btn"> <i class="fa-solid fa-trash"></i> </button>
+        </p>
+      </div>
+      }@empty {
+      <div class="empty-users">
+        <i class="fa-solid fa-users-slash"></i>
+        <p>No users found</p>
+      </div> }
+
+    </div>
+    <div class="table-footer">
+      <div class="page-row">
+        <span>Page Row</span>
+        <select name="rows" class="form-select" [value]="pageRow" (change)="changePageRow( $any($event.target).value)">
+          <option value="10">10</option>
+          <option value="20">20</option>
+          <option value="30">30</option>
+          <option value="40">40</option>
+        </select>
+      </div>
+      <i class="fa-solid fa-chevron-left" (click)="prePage()"></i>
+      <p>{{currentPage }} Of {{totelPage()}}</p>
+      <i class="fa-solid fa-chevron-right" (click)="nextPage()"></i>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,77 @@
+<section class="cart_page">
+  <div class="container ">
+    @if (cartProducts.length == 0) {
+    <div class="empty-cart">
+      <span><i class="fa-solid fa-box-open"></i></span>
+      <h3>Your cart is empty</h3>
+      <p>Looks like you haven't added anything yet.</p>
+      <button class="btn" routerLink="'/page/product'" routerLinkActive="router-link-active" >    Continue Shopping      </button>
+    </div>
+    }@else{
+
+      <header>
+        <h2>Your Cart</h2>
+      <button type="button" class="btn clear-all" (click)="clearCarts()"><i class="fa-regular fa-trash-can"></i>Clear
+        All</button>
+    </header>
+    <div class="products-container">
+      <aside>
+        <div class="box">
+
+          <h4>Order Summary</h4>
+          <div class="list">
+            <div class="tr">
+              <p>Subtotal ({{clcQuantiy()}} items)</p>
+              <span>$ {{clcALlPrice().toFixed(2)}}</span>
+            </div>
+            <div class="tr">
+              <p>Shipping</p>
+              <span class="free">free</span>
+            </div>
+            <div class="tr">
+              <p>Tax (2%)</p>
+              <span>${{(clcALlPrice() * .2).toFixed(2)}}</span>
+            </div>
+          </div>
+          <div class="total-price">
+            <p>Total</p>
+            <p>$${{( clcALlPrice() + clcALlPrice() *.2).toFixed(2)}}</p>
+          </div>
+          <button class="btn check">Checkout</button>
+          <button class="btn go-shopping">Continue Shopping</button>
+        </div>
+      </aside>
+      <section class="products">
+        @for (product of cartProducts; track $index) {
+        <article class="product">
+          <div class="img-box">
+            <img [src]="product.thumbnail" [alt]="product.title">
+          </div>
+          <div class="card-body" >
+            <p [routerLink]="'/page/product/'+product.id"> {{product.title}} </p>
+            <span class="main-price"> $ {{( product.price - ((product.price * product.discountPercentage) /
+              100)).toFixed(2)}}</span>
+            <div class="tools">
+              <div class="left">
+                <button class="btn" (click)="increase(product.id)">+</button>
+                <span>
+                  <p>{{getQuantity(product.id)}}</p>
+                </span>
+                <button class="btn" (click)="decrease(product.id)">-</button>
+              </div>
+              <div class="right">
+                <span class="price"> $ {{(( product.price - ((product.price * product.discountPercentage) / 100)) *
+                  getQuantity(product.id)).toFixed(2)}}</span>
+                <span class="delete" (click)="removeCart(product.id)"><i class="fa-regular fa-trash-can"></i></span>
+              </div>
+            </div>
+          </div>
+        </article>
+        }
+      </section>
+
+    </div>
+  }
+  </div>
+
+</section>

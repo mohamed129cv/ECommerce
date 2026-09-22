@@ -1,0 +1,29 @@
+:root {
+  --primary: hsl(250 89% 65%);
+  --foreground: hsl(222 47% 5%);
+  --card: hsl(222 35% 9%);
+  --secondary: hsl(210 40% 96%);
+  --border: hsl(214 32% 91%);
+
+  --Primary: #7457f5;
+  --Success: #22c55e;
+  --Warning: #f59e0b;
+  --Error: #ef4444;
+  --Info: #06b6d4;
+
+  --white: #ffffff;
+
+  --Text-main: #070b12;
+  --Text-muted: #64748b;
+
+  --Dark-bg: #070b12;
+  --Dark-card: #111827;
+  --Dark-border: #263244;
+  --shadow-xs:
+0px 2px 0px 0px hsl(250 89% 65% / 0.05);
+--shadow-lg:
+0px 2px 0px 0px hsl(250 89% 65% / 0.05),
+0px 4px 6px -1px hsl(250 89% 65% / 0.1);
+--shadow-2xl:
+0 25px 50px -12px hsl(250 89% 65% / 0.15);
+}

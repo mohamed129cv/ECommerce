@@ -1,0 +1,18 @@
+<app-navbar></app-navbar>
+<section class="user-layout" >
+  <div class="lr" (click)="showBar = !showBar " *ngIf="showBar"></div>
+  <span class="setting" (click)="showBar = !showBar"><i class="fa-solid fa-bars" [class.active]="showBar == true "></i></span>
+  <aside [class.active]="showBar == true ">
+    <ul>
+      <li routerLink="/user/profile" routerLinkActive="active" >Profile </li>
+      <li [routerLink]="'/user/setting'" routerLinkActive="active" >Settings</li>
+      <!-- <li [routerLink]="'/user/dasborde'" routerLinkActive="active">Order</li> -->
+      <li class="bg-danger text-white" (click)="logout()">logOut </li>
+    </ul>
+  </aside>
+  <div class="body">
+
+    <router-outlet></router-outlet>
+  </div>
+</section>
+<app-footer></app-footer>

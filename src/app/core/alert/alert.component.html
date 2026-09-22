@@ -1,0 +1,10 @@
+<section class="alerts">
+  @for (alert of alerts; track $index) {
+
+    <div [class]="'alert alert-'+alert.alert_type" (click)="AlertService.remove_alert(alert.id)" [ngClass]="alert.alert_show ? 'show' : 'hidden' "  >
+      <h6> {{alert.alert_title}} </h6>
+      <p> {{alert.alert_message}} </p>
+      <i class="fa-solid fa-xmark" (click)="AlertService.remove_alert(alert.id)"></i>
+    </div>
+  }
+</section>

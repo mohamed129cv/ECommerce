@@ -1,0 +1,52 @@
+<footer>
+  <div class="container">
+    <section class="footer-content">
+      <article>
+          <p class="brand-name">
+
+            <span class="icon"><i class="fa-solid fa-bolt"></i></span> <span class="text">Nexus</span>
+            Commerce
+          </p>
+        <p class="dis">The premium destination for world-class products. Curated for the discerning customer. </p>
+        <div class="socil">
+          <i class="fa-brands fa-github"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-twitter"></i>
+        </div>
+      </article>
+      <article>
+        <h4>Shop</h4>
+        <ul>
+          <li [routerLink]="'/page/product'" [queryParams]="{category : 'all'}">All products</li>
+          <li [routerLink]="'/page/product'" [queryParams]="{category : 'smartphones'}">Electronics</li>
+          <li [routerLink]="'/page/product'" [queryParams]="{category : 'tops'}">Fashion</li>
+          <li [routerLink]="'/page/product'" [queryParams]="{category : 'mens-watches'}">Watches</li>
+          <li [routerLink]="'/page/product'" [queryParams]="{category : 'motorcycle'}">Cars</li>
+        </ul>
+      </article>
+      <article>
+        <h4>Account</h4>
+        <ul>
+          <li [routerLink]="'/user/profile'">Account</li>
+          <li [routerLink]="'/page/cart'"  >Orders</li>
+          <li [routerLink]="'/page/favorite'">Wishlist</li>
+          <li [routerLink]="'/user/profile'">Support</li>
+        </ul>
+      </article>
+      <!-- <article>
+        <h4>Support</h4>
+        <ul>
+          <li>Help Center</li>
+          <li>Shipping Info</li>
+          <li>Returns</li>
+          <li>Contact Us</li>
+        </ul>
+      </article> -->
+
+    </section>
+    <div class="cpoy-right">
+      <p>      &copy;  2026 Nexus Commerce. All rights reserved. By Moahmed abd </p>
+
+    </div>
+  </div>
+</footer>

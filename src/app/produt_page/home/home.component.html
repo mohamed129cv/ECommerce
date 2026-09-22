@@ -1,0 +1,115 @@
+<section class="home_page">
+  <!--! hero section  -->
+  <article class="hero-sec">
+    <div class="container">
+
+      <div class="hero">
+        <div class="hero_text">
+          <div class="hero-badg">
+            <i class="fa-solid fa-arrow-trend-up"></i>
+            <span>Summer Collection 2026</span>
+          </div>
+          <h1>
+            Experience
+            <span>Premium</span>
+            Commerce
+          </h1>
+          <p class="hero-dis">Discover world-class products from the finest brands. Curated for those who demand
+            excellence.</p>
+          <div class="act">
+            <button type="button" [routerLink]="'/page/product'" class="btn btn-shopping">Shop Now <i
+                class="fa-solid fa-arrow-right"></i></button>
+            <button type="button" class="btn btn-featured">Explore Featured</button>
+          </div>
+
+          <div class="stats">
+            @for (item of heroItem; track $index) {
+            <div class="items">
+              <span class="number">{{item.num}}</span>
+              <span class="dis">{{item.dis}}</span>
+            </div>
+            }
+          </div>
+        </div>
+        <div class="img-box">
+
+          <img src="" alt="">
+        </div>
+      </div>
+    </div>
+
+  </article>
+  <!--! atchivment party  -->
+  <article class="atchivment_sec">
+    <div class="container">
+      <div class="atchivments">
+
+        @for (achivement of heroAchievement; track $index) {
+        <div class="achivement-card">
+          <span class="icon"><i [class]="'fa-solid fa-'+achivement.icon"></i></span>
+          <div class="card-body">
+            <span class="title">{{achivement.title}}</span>
+            <span class="dis">{{achivement.dis}}</span>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+
+  </article>
+  <!--! catogry  section  -->
+  <article class="category_setion">
+    <div class="container">
+      <section class="header">
+        <div class="header_title">
+          <h4>Shop by Category</h4>
+          <p class="dis">Find exactly what you're looking for</p>
+        </div>
+        <p class="go" [routerLink]="'/page/product'" [queryParams]="{category : 'all'}">All Category <i class="fa-solid fa-chevron-right"></i></p>
+      </section>
+      <section class="categorys">
+        @for (cate of category; track $index) {
+        <div class="category_card" [routerLink]="'/page/product'" [queryParams]="{category : cate.router_link}">
+          <div class="catrgory_img">
+            <img [src]="'assets/'+cate.src" [alt]="cate.dis">
+          </div>
+          <h4>{{cate.dis}}</h4>
+        </div>
+        }
+      </section>
+    </div>
+  </article>
+  <!--! Featured  section  -->
+  <article class="featured_section">
+    <div class="container">
+      <div class="header">
+        <div class="header_title">
+          <h4> Featured Products </h4>
+          <p class="dis">Handpicked by our experts</p>
+        </div>
+        <p class="go" [routerLink]="'/page/product'">View All <i class="fa-solid fa-chevron-right"></i> </p>
+      </div>
+      <div class="our_product">
+        <app-prodcut-cart [allProduct]="product" [isLoding]="isLoding" ></app-prodcut-cart>
+      </div>
+    </div>
+  </article>
+  <!--! end  -->
+  <article class="action">
+    <div class="container">
+      <div class="hero-badg">
+        <i class="fa-regular fa-star"></i>
+        <span>Loyalty Program</span>
+      </div>
+      <h3>
+        Earn rewards with every purchase
+      </h3>
+      <p>
+        Join millions of members earning loyalty points. Redeem for discounts, exclusive products, and more.
+      </p>
+      <button type="button" class="btn">
+        Join for Free
+      </button>
+    </div>
+  </article>
+</section>

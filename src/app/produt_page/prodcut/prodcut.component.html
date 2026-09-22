@@ -1,0 +1,50 @@
+<section class="prodcut-page">
+  <div class="container">
+    <header>
+      <div class="search-box">
+        <input type="text" name="search" id="search" placeholder="search product" class="form-control"
+          [(ngModel)]="search">
+        <button type="button" class="btn " (click)="onSearch()">Search</button>
+      </div>
+      <select [(ngModel)]="selectValue" name="sort" (change)="onSortChange()" id="sort" class="form-select">
+        <option   value="" >Default Sorting</option>
+        <option   value="title-asc">Title (A to Z)</option>
+        <option  value="title-desc">Title (Z to A)</option>
+        <option   value="price-asc">Price (Low to High)</option>
+        <option   value="price-desc">Price (High to Low)</option>
+      </select>
+
+    </header>
+    <div class="grid">
+      <aside>
+        <ul>
+          <div class="fild" (click)="  selectCate('all') ">
+            <li>
+              <input type="radio" name="cate" id="all" [checked]="cateFillter =='all'">
+              All product
+            </li>
+          </div>
+          @for (cate of categoryies; track $index) {
+
+          <li (click)="selectCate(cate.slug) ">
+            <input type="radio" name="cate" [id]="cate.slug" [checked]="cateFillter == cate.slug">
+            {{cate.name}}
+          </li>
+
+          }
+        </ul>
+      </aside>
+      <div class="prodcts">
+        <app-prodcut-cart [allProduct]="products" [isLoding]="isLodaing"></app-prodcut-cart>
+      </div>
+
+    </div>
+    <div class="number">
+      <button type="button" (click)="prevPage()" class="btn">prev</button>
+      @for(i of numbersIsshow ; track $index){
+      <span [ngClass]=" i == currentpage ? 'active' : ''" (click)="updataPage(i)">{{i}}</span>
+      }
+      <button type="button" (click)="nextPage()" class="btn">next</button>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,116 @@
+.favorite-page{
+  width: 100%;
+  min-height: 85vh;
+  padding: 3rem;
+}
+.grid{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.product {
+  padding: 1rem;
+  border: 1px solid var(--dark-border);
+  border-radius: 10px;
+  position: relative;
+  background-color: var(--dark-bg);
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap:10px ;
+}
+.product  .img-box{
+  width: 75px;
+  height: 75px;
+  border-radius: .7rem;
+  background-color: var(--img-box);
+}
+.product .img-box img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+.product .body {
+  flex: 1;
+  padding: 1rem;
+}
+.product h4 {
+
+  color: var(--secondary);
+  transition: var(--transition);
+}
+
+.product h4:hover {
+  color: var(--main-color);
+}
+.empty-cart{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:1rem;
+  padding:4rem 1rem;
+  text-align:center;
+}
+.empty-cart span{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background-color: var(--dark-card);
+  color: var(--Text-muted);
+  opacity: .7;
+}
+.empty-cart i{
+  font-size:2rem;
+}
+.empty-cart h3{
+  font-size:clamp(4rem , 1.5vw + 1rem , 6rem);
+}
+.empty-cart p {
+  color: var(--Text-muted);
+}
+.empty-cart .btn{
+  background-color: var(--main-color);
+  color: var(--secondary);
+}
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+}
+header .btn{
+  color: var(--Text-muted);
+  transition: var(--transition);
+  padding: .7rem;
+  font-size: 0.8rem;
+  text-transform: capitalize;
+}
+header .btn:hover{
+  color: var(--Error);
+  background-color: var(--card);
+}
+
+.product .del{
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: var(--card);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  transition: var(--transition);
+}
+.product .del:hover{
+  color: var(--Error);
+}
+

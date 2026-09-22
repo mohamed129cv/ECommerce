@@ -1,0 +1,245 @@
+.product_details {
+  width: 100%;
+}
+.product {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 1rem;
+}
+.product .img-box {
+  width: 48%;
+  border-radius: 10px;
+  background-color: var(--img-box);
+}
+.product .img-box img {
+  width: 100%;
+  border-radius: 10px;
+}
+.product .product-informtion {
+  width: 48%;
+}
+.product-informtion .cate {
+  text-transform: uppercase;
+  color: var(--Text-muted);
+}
+.retaing i {
+  color: var(--Warning);
+  margin-right: 5px;
+}
+.retaing span {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.price-party{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+.price-party .discount-price{
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+.price-party .main-price{
+  color: var(--Text-muted);
+  font-size: .8rem;
+  text-decoration: line-through;
+}
+.product .dis {
+  color: var(--Text-muted);
+  font-size: .8rem;
+}
+.quantity .btn {
+  background-color: var(--trid);
+  color: var(--secondary);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0 10px;
+
+}
+.tools{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin: 30px 0;
+}
+.tools .btn{
+  flex: 1;
+  background-color: var(--main-color);
+  color: var(--secondary);
+  transition: var(--transition);
+}
+.tools .btn:hover{
+  box-shadow: var(--shadow-2xl) !important;
+}
+.tools .btn.show{
+  background-color: var(--card);
+  border-color: var(--dark-border);
+  color: var(--main-color);
+}
+.tools span{
+  width: fit-content;
+  background-color: var(--trid);
+  color: var(--secondary);
+  padding: 0.8rem;
+  display:grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: var(--transition);
+}
+.tools span:hover{
+  background-color: var(--main-color);
+}
+.tools .favourite{
+  color: var(--Error);
+}
+.images{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.images .img-box {
+  background-color: var(--img-box);
+  border-radius: 10px;
+  height: 100px;
+  cursor: pointer;
+}
+.images img{
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  list-style: none;
+  object-fit: cover;
+}
+.end{
+  margin-block: 1rem;
+}
+.end .header{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+  border-bottom: 1px solid var(--dark-border);
+  margin: 10px 0;
+}
+.end .header li{
+  padding: 1rem;
+  border-radius: .5rem;
+  margin: 10px 0;
+  position: relative;
+  transition: var(--transition);
+  cursor: pointer;
+  color: var(--Text-muted);
+}
+.end .header li::before {
+  content: '';
+  width: 100%;
+  height: 1px;
+  background-color:  var(--main-color);
+  position: absolute;
+  bottom: -11px;
+  left: 0;
+  opacity: 0;
+  transition: var(--transition);
+}
+.end .header li.active::before , .end .header li:hover::before {
+ opacity: 1;
+}
+.end .header li.active , .end .header li:hover {
+  color: var(--secondary);
+}
+
+.end .dis-ses p{
+  color: var(--Text-muted) ;
+  font-size:.9rem;
+}
+.end .tags{
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+  list-style: none;
+  margin: 10px 0;
+}
+.end .tags li{
+  padding: 10px;
+  border-radius: 45px;
+  background-color: var(--trid);
+  color: var(--secondary);
+  font-size: .8rem;
+}
+.reviwes {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.reviwes .user-reviwe{
+  width: 100%;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: var(--card);
+  border: 1px solid var(--dark-border);
+  transition: var(--transition);
+}
+.reviwes .user-reviwe:hover{
+  box-shadow: var(--shadow-lg);
+}
+.user-reviwe .detalis{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.user-reviwe .user-data{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+}
+.user-reviwe .icon{
+  width: 40px;
+  height: 40px;
+  background-color: var(--trid);
+  border-radius: 50%;
+  color: var(--main-color);
+  display: grid;
+  place-items: center;
+  font-size: 1.3rem;
+  text-transform: capitalize;
+}
+.user-reviwe .verified{
+  padding: 0.5rem;
+  display: inline-block;
+  place-items: center;
+  font-size: .7rem;
+  color: var(--secondary);
+  border-radius: 45px ;
+
+}
+.user-reviwe .verified.active{
+  background-color: var(--Success);
+}
+.user-reviwe .verified.unactive{
+  background-color: var(--Error);
+}
+.user-reviwe .user-comment ,
+.user-reviwe .date{
+  color: var(--Text-muted);
+  font-size: .8rem;
+}
+@media screen and (max-width: 792px) {
+  .product {
+    flex-direction: column;
+  }
+  .product .img-box {
+    width: 100%;
+  }
+  .product .product-informtion {
+    width: 100%;
+  }
+}

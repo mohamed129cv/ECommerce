@@ -1,0 +1,70 @@
+<section class="carts">
+  <div class="container">
+    <div class="grid">
+
+      @if(isLoding ){
+      @for( i of [1,2,3,4,5,6,7,8 , 9,10 ] ; track $index){
+      <article class="product-card skeleton-card fade-up" appFadeUp   [style.animation-delay]="$index * 100+'ms' " >
+
+        <div class="img-box">
+          <div class="skeleton-img"></div>
+
+          <span class="discount skeleton-circle"></span>
+          <span class="love skeleton-circle"></span>
+          <span class="seller skeleton-circle"></span>
+        </div>
+
+        <div class="card-body">
+          <div class="skeleton-line cate"></div>
+          <div class="skeleton-line title"></div>
+
+          <div class="skeleton-line rating"></div>
+
+          <div class="card-footer">
+            <div>
+              <div class="skeleton-line discount-price"></div>
+            </div>
+
+            <div class="skeleton-btn"></div>
+          </div>
+        </div>
+
+      </article>
+      }
+      }@else{
+      @for (product of allProduct ; track $index) {
+      <article class="product-card fade-up" appFadeUp [style.transition-delay]=" $index * 55 +'ms'" >
+        <div class="img-box">
+          <span class="haert" [ngClass]="isFavourite(product.id) ? 'active' : '' "
+            (click)="addToFavorate( product.id , product.title , product.thumbnail)"> <i class=" fa-heart"
+              [ngClass]="isFavourite(product.id) ? 'fa-solid' : 'fa-regular' "></i></span>
+          <span class="discount">-{{product.discountPercentage }}%</span>
+          <span class="seller" *ngIf="product.rating >= 4.4 "> <i class="fa-solid fa-arrow-trend-up"></i> Best
+            Seller</span>
+          <img [routerLink]="['/page/product/',  product.id]" [src]="product.thumbnail" [alt]="product.title"
+            loading="lazy">
+        </div>
+        <div class="card-body">
+          <span class="cate-name">{{product.category}}</span>
+          <h5 class="card-title">{{product.title}}</h5>
+          <div class="rate">
+            <i class="fa-solid fa-star"></i> <span class="rating">{{product.rating}}</span>
+          </div>
+          <div class="card-footer">
+            <p>
+              <span class="dicount-price"> {{( product.price - ((product.price * product.discountPercentage) /
+                100)).toFixed(2) }}</span>
+              <span class="price">${{product.price}} </span>
+            </p>
+            <span class="add-cart" [routerLink]="['/page/product/',  product.id]">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </span>
+          </div>
+        </div>
+      </article>
+      }
+
+      }
+    </div>
+  </div>
+</section>

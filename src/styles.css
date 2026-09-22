@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --foreground: hsl(222 47% 5%);
+  --card: hsl(222 35% 9%);
+  --secondary: hsl(210 40% 96%);
+  --border: hsl(214 32% 91%);
+  --main-color: hsl(250 89% 65%);
+  --trid : hsl(250 89% 65% / 0.15) ;
+  --Primary: #7457f5;
+  --Success: #22c55e;
+  --Warning: #f59e0b;
+  --Error: #ef4444;
+  --Info: #06b6d4;
+  --white: #ffffff;
+  --Text-main: #070b12;
+  --Text-muted: #64748b;
+
+  --img-box : #454b5a ;
+  --dark-bg: #070b12;
+  --dark-card: #111827;
+  --dark-border: #263244;
+  --transition :  .4s all;
+  --shadow-xs:
+0px 2px 0px 0px hsl(250 89% 65% / 0.05);
+--shadow-lg:
+0px 2px 0px 0px hsl(250 89% 65% / 0.05),
+0px 4px 6px -1px hsl(250 89% 65% / 0.1);
+--shadow-2xl:
+0 25px 50px -12px hsl(250 89% 65% / 0.15);
+}
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background: var(--dark-bg);
+  color: var(--secondary);
+}
+.fade-up{
+  opacity: 0;
+  transform: translateY(40px) scale(.7);
+  transition: .4s all ease;
+}
+.fade-up.show{
+  opacity: 1;
+  transform: translateY(0)  scale(1);
+}
+::selection{
+  background-color: var(--main-color);
+  color: var(--secondary);
+}
