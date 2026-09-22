@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { IProduct } from '../../core/interface/iproduct';
 import { IproductFilters } from '../../core/interface/iproduct-filters';
 import { FormsModule } from '@angular/forms';
+import { AlertService } from '../../core/apis/alert.service';
 
 @Component({
   selector: 'app-prodcut',
@@ -18,7 +19,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './prodcut.component.css'
 })
 export class ProdcutComponent {
-  constructor(private productService: ProductService, private cate: CategoryService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private productService: ProductService, private cate: CategoryService, private router: Router, private activatedRoute: ActivatedRoute, private alert: AlertService) { }
   categoryies: ICategory[] = []
   cateFillter: string = 'all'
   skip: number = 0
@@ -82,7 +83,7 @@ export class ProdcutComponent {
           this.totalProductPage = Math.ceil(res.total / res.limit)
           this.initnumber()
           this.isLodaing = false
-        } , 600)
+        }, 600)
         console.log(this.products);
       },
       error: err => {
@@ -97,7 +98,7 @@ export class ProdcutComponent {
       this.sortBy = undefined
       this.order = undefined
 
-    }else{
+    } else {
       let [sort, order] = this.selectValue.split('-')
       this.sortBy = sort
       this.order = order
@@ -154,7 +155,7 @@ export class ProdcutComponent {
         queryParams: { page: this.currentpage + 1 }, queryParamsHandling: 'merge'
       })
     } else {
-      alert('s')
+      this.alert.add_alert('warning', 'You have reached the last page.', '', 3000)
     }
   }
   prevPage() {
@@ -163,7 +164,8 @@ export class ProdcutComponent {
         queryParams: { page: this.currentpage - 1 }, queryParamsHandling: 'merge'
       })
     } else {
-      alert('s')
+      this.alert.add_alert('warning', 'You have reached the first page.', '', 3000)
+      // alert('s')
     }
   }
 }
