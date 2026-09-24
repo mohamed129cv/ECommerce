@@ -27,6 +27,7 @@ export class ProdcutComponent {
   isLodaing: boolean = false
   products: IProduct[] = []
   totalProductPage !: number
+  showBar: boolean = false
 
   ngOnInit(): void {
     this.getCategory()
@@ -119,7 +120,6 @@ export class ProdcutComponent {
   numbersIsshow: number[] = []
   countPages = 5
   currentpage = 1
-
   initnumber() {
     this.arr = []
     for (let i = 1; i <= this.totalProductPage; i++) {

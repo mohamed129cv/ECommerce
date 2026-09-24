@@ -5,7 +5,7 @@
       <span><i class="fa-solid fa-box-open"></i></span>
       <h3>Your cart is empty</h3>
       <p>Looks like you haven't added anything yet.</p>
-      <button class="btn" routerLink="'/page/product'" routerLinkActive="router-link-active" >    Continue Shopping      </button>
+      <button class="btn" [routerLink]="'/page/product'" routerLinkActive="router-link-active" >    Continue Shopping      </button>
     </div>
     }@else{
 
@@ -35,10 +35,10 @@
           </div>
           <div class="total-price">
             <p>Total</p>
-            <p>$${{( clcALlPrice() + clcALlPrice() *.2).toFixed(2)}}</p>
+            <p>${{( clcALlPrice() + clcALlPrice() *.2).toFixed(2)}}</p>
           </div>
           <button class="btn check">Checkout</button>
-          <button class="btn go-shopping">Continue Shopping</button>
+          <button class="btn go-shopping" [routerLink]="'/page/product'">Continue Shopping</button>
         </div>
       </aside>
       <section class="products">

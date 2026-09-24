@@ -55,6 +55,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 10px;
+
 }
 .nav-search-box input {
   width: 0px;
@@ -166,4 +167,97 @@
 }
 .my-account:hover{
   background-color: var(--dark-card);
+}
+/* search-result */
+.search-result{
+  position: absolute;
+  top: 55px;
+  left: 0;
+  width: 100%;
+  max-height: 170px;
+  background-color: var(--card);
+  border: 1px solid var(--dark-border);
+  border-radius: .5rem;
+  padding: .5rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  list-style: none;
+  overflow-y: auto;
+  cursor: pointer;
+  pointer-events: none;
+  opacity: 0;
+  transition: var(--transition);
+}
+.search-result::-webkit-scrollbar{
+  width: 5px;
+  background-color: var(--dark-border);
+}
+.search-result li{
+  padding: .5rem;
+  border-radius: .5rem;
+  transition: var(--transition);
+}
+.search-result li:hover{
+  background-color: var(--main-color);
+}
+.search-result.show{
+  pointer-events: auto;
+  opacity: 1;
+}
+
+@media (max-width: 991px) {
+  .tools {
+    gap: 12px;
+    min-width: 0;
+  }
+
+  .nav-search-box input.show_box {
+    width: 150px;
+    max-width: 35vw;
+  }
+
+  .account-list {
+    left: auto;
+    right: 0;
+    max-width: calc(100vw - 30px);
+  }
+}
+
+@media (max-width: 576px) {
+  .tools {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .auth-options {
+    gap: 7px;
+  }
+
+  .nav-search-box {
+    gap: 6px;
+  }
+
+  .nav-search-box input.show_box {
+    width: min(130px, 35vw);
+    max-width: 35vw;
+    min-width: 0;
+  }
+
+  .account-list {
+    left: auto;
+    right: 0;
+    width: 190px;
+    max-width: calc(100vw - 30px);
+  }
+
+  .search-result {
+    width: 100%;
+    max-width: calc(100vw - 30px);
+  }
+
+  .navbar-brand {
+    margin-right: 0;
+    font-size: 1rem;
+  }
 }

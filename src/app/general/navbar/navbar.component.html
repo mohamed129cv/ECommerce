@@ -23,7 +23,12 @@
       <i class="fa-solid fa-heart" [routerLink]="'/page/favorite'"></i>
       <div class="nav-search-box">
         <i class="fa-solid " [ngClass]="enabaleSearch ? 'fa-xmark' : 'fa-magnifying-glass' " (click)="enabaleSearch = !enabaleSearch "></i>
-        <input type="text" placeholder="search proudcut  ..." [ngClass]="enabaleSearch ? 'show_box' : 'hidden_box' ">
+        <input type="text" placeholder="search proudcut  ..." [ngClass]="enabaleSearch ? 'show_box' : 'hidden_box' " [(ngModel)]="searchWord" (input)="search()">
+        <ul class="search-result" [class.show]="searchResult.length >= 1 && enabaleSearch  " >
+          @for (product of searchResult; track $index) {
+            <li [routerLink]="'/page/product/'+product.id">{{product.title}}</li>
+          }
+        </ul>
       </div>
       <div class="auth-options ">
         <button type="button" class="btn login " *ngIf="!isLogin"  [routerLink]="'/auth/login'" routerLinkActive="active">sign in</button>

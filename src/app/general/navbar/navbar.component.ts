@@ -7,11 +7,14 @@ import { getAuth, signOut } from 'firebase/auth';
 import { AlertService } from '../../core/apis/alert.service';
 import { FirebaseErrors } from '../../core/url/erores';
 import { CartService } from '../../core/apis/product/cart.service';
+import { ProductService } from '../../core/apis/product/product.service';
+import { IProduct } from '../../core/interface/iproduct';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, CommonModule],
+  imports: [RouterLink, RouterLinkActive, CommonModule , FormsModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
@@ -19,7 +22,7 @@ export class NavbarComponent {
   enabaleSearch: boolean = false
   isLogin: boolean = false
   isShow: boolean = false
-  constructor(private AuthService: AuthService , private FavouriteService :FavouriteService  ,private cartService : CartService , private alert: AlertService, private ele: ElementRef) { }
+  constructor( private ProductService : ProductService, private AuthService: AuthService , private FavouriteService :FavouriteService  ,private cartService : CartService , private alert: AlertService, private ele: ElementRef) { }
 
   ngOnInit(): void {
     this.AuthService.$isLogin.subscribe(res => {
@@ -47,6 +50,13 @@ export class NavbarComponent {
   clcQuantiy(){
    return this.cartService.clcQuantiy()
  }
+ searchResult : IProduct[] = []
+ searchWord: string = ''
+ search(){
+  this.ProductService.getproductByFilters({search : this.searchWord , limit : 20 , skip : 0 , }).subscribe(res=>{
+    this.searchResult = res.products
+  })
+}
 
 }
 
