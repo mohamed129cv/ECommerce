@@ -3,11 +3,12 @@ import { FavouriteService } from './../../core/apis/product/favourite.service';
 import { Component } from '@angular/core';
 import { Ifavorite } from '../../core/interface/ifavorite';
 import { RouterLink } from "@angular/router";
+import { FadeUpDirective } from '../../core/directive/fade-up.directive';
 
 @Component({
   selector: 'app-favorit',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, FadeUpDirective],
   templateUrl: './favorit.component.html',
   styleUrl: './favorit.component.css'
 })

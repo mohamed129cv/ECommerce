@@ -7,11 +7,12 @@ import { Component } from '@angular/core';
 import { FavouriteService } from '../../core/apis/product/favourite.service';
 import { Ifavorite } from '../../core/interface/ifavorite';
 import { RouterLink } from "@angular/router";
+import { FadeUpDirective } from '../../core/directive/fade-up.directive';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, FadeUpDirective],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })

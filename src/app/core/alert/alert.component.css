@@ -29,6 +29,7 @@
   opacity: 0;
   transform: translateY(100px);
   transition: var(--transition);
+  pointer-events: auto;
 }
 .alert .fa-xmark{
   position: absolute;

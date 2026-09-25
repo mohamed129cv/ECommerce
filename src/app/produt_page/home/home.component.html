@@ -5,26 +5,26 @@
 
       <div class="hero">
         <div class="hero_text">
-          <div class="hero-badg">
+          <div class="hero-badg fade-up" appFadeUp >
             <i class="fa-solid fa-arrow-trend-up"></i>
             <span>Summer Collection 2026</span>
           </div>
-          <h1>
+          <h1 class="fade-up" appFadeUp>
             Experience
             <span>Premium</span>
             Commerce
           </h1>
-          <p class="hero-dis">Discover world-class products from the finest brands. Curated for those who demand
+          <p class="hero-dis fade-up" appFadeUp>Discover world-class products from the finest brands. Curated for those who demand
             excellence.</p>
-          <div class="act">
-            <button type="button" [routerLink]="'/page/product'" class="btn btn-shopping">Shop Now <i
+          <div class="act fade-up"  appFadeUp>
+            <button type="button" [routerLink]="'/page/product'" class="btn btn-shopping fade-up" appFadeUp>Shop Now <i
                 class="fa-solid fa-arrow-right"></i></button>
-            <button type="button" class="btn btn-featured">Explore Featured</button>
+            <button type="button" class="btn btn-featured fade-up" appFadeUp>Explore Featured</button>
           </div>
 
           <div class="stats">
             @for (item of heroItem; track $index) {
-            <div class="items">
+            <div class="items fade-up" appFadeUp [style.animation-delay]="$index * 100+'ms'">
               <span class="number">{{item.num}}</span>
               <span class="dis">{{item.dis}}</span>
             </div>
@@ -45,7 +45,7 @@
       <div class="atchivments">
 
         @for (achivement of heroAchievement; track $index) {
-        <div class="achivement-card">
+        <div class="achivement-card fade-up" appFadeUp [style.animation-delay]=" $index * 200+'ms'" >
           <span class="icon"><i [class]="'fa-solid fa-'+achivement.icon"></i></span>
           <div class="card-body">
             <span class="title">{{achivement.title}}</span>
@@ -61,15 +61,15 @@
   <article class="category_setion">
     <div class="container">
       <section class="header">
-        <div class="header_title">
+        <div class="header_title fade-up" appFadeUp>
           <h4>Shop by Category</h4>
-          <p class="dis">Find exactly what you're looking for</p>
+          <p class="dis fade-up" appFadeUp>Find exactly what you're looking for</p>
         </div>
         <p class="go" [routerLink]="'/page/product'" [queryParams]="{category : 'all'}">All Category <i class="fa-solid fa-chevron-right"></i></p>
       </section>
       <section class="categorys">
         @for (cate of category; track $index) {
-        <div class="category_card" [routerLink]="'/page/product'" [queryParams]="{category : cate.router_link}">
+        <div class="category_card fade-up" appFadeUp [routerLink]="'/page/product'" [queryParams]="{category : cate.router_link}">
           <div class="catrgory_img">
             <img [src]="'assets/'+cate.src" [alt]="cate.dis">
           </div>
@@ -97,17 +97,17 @@
   <!--! end  -->
   <article class="action">
     <div class="container">
-      <div class="hero-badg">
-        <i class="fa-regular fa-star"></i>
+      <div class="hero-badg fade-up" appFadeUp >
+        <i class="fa-regular fa-star "></i>
         <span>Loyalty Program</span>
       </div>
-      <h3>
+      <h3 class="fade-up" appFadeUp>
         Earn rewards with every purchase
       </h3>
-      <p>
+      <p class="fade-up" appFadeUp>
         Join millions of members earning loyalty points. Redeem for discounts, exclusive products, and more.
       </p>
-      <button type="button" class="btn">
+      <button type="button" class="btn fade-up" appFadeUp>
         Join for Free
       </button>
     </div>

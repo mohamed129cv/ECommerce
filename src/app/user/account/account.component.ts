@@ -11,11 +11,12 @@ import { Router, RouterLink } from "@angular/router";
 import { FirebaseErrors } from '../../core/url/erores';
 import { AlertService } from '../../core/apis/alert.service';
 import { CartService } from '../../core/apis/product/cart.service';
+import { FadeUpDirective } from '../../core/directive/fade-up.directive';
 
 @Component({
   selector: 'app-account',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, FadeUpDirective],
   templateUrl: './account.component.html',
   styleUrl: './account.component.css'
 })

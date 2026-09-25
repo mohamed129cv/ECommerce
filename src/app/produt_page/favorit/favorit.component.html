@@ -1,14 +1,14 @@
 <section class="favorite-page">
   <div class="container">
     <header>
-        <h6>Your wishlist</h6>
-        <button type="button" class="btn clear-all" (click)=" clearFavorivte()"><i class="fa-regular fa-trash-can"></i>Clear
+        <h6 class="fade-up" appFadeUp>Your wishlist</h6>
+        <button type="button" class="btn clear-all fade-up" appFadeUp (click)=" clearFavorivte()"><i class="fa-regular fa-trash-can"></i>Clear
         All</button>
     </header>
     <div class="grid">
 
       @for (product of products; track $index) {
-        <article class="product"  >
+        <article class="product fade-up" appFadeUp   [style.animation-delay]="$index * 0.1 + 's'">
           <span class="del" (click)="removeFavorivte(product.id)"><i class="fa-regular fa-trash-can"></i></span>
           <div class="img-box" [routerLink]="'/page/product/'+product.id">
             <img [src]="product.Image" alt="">

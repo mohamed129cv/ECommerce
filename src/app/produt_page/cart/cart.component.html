@@ -9,7 +9,7 @@
     </div>
     }@else{
 
-      <header>
+      <header class="fade-up" appFadeUp>
         <h2>Your Cart</h2>
       <button type="button" class="btn clear-all" (click)="clearCarts()"><i class="fa-regular fa-trash-can"></i>Clear
         All</button>
@@ -18,32 +18,32 @@
       <aside>
         <div class="box">
 
-          <h4>Order Summary</h4>
-          <div class="list">
+          <h4  class="fade-up" appFadeUp>Order Summary</h4>
+          <div class="list fade-up" appFadeUp>
             <div class="tr">
-              <p>Subtotal ({{clcQuantiy()}} items)</p>
-              <span>$ {{clcALlPrice().toFixed(2)}}</span>
+              <p class="fade-up" appFadeUp>Subtotal ({{clcQuantiy()}} items)</p>
+              <span class="fade-up" appFadeUp>$ {{clcALlPrice().toFixed(2)}}</span>
             </div>
             <div class="tr">
-              <p>Shipping</p>
-              <span class="free">free</span>
+              <p class="fade-up" appFadeUp>Shipping</p>
+              <span class="free fade-up" appFadeUp>free</span>
             </div>
             <div class="tr">
-              <p>Tax (2%)</p>
-              <span>${{(clcALlPrice() * .2).toFixed(2)}}</span>
+              <p class="fade-up" appFadeUp>Tax (2%)</p>
+              <span class="fade-up" appFadeUp>${{(clcALlPrice() * .2).toFixed(2)}}</span>
             </div>
           </div>
           <div class="total-price">
-            <p>Total</p>
-            <p>${{( clcALlPrice() + clcALlPrice() *.2).toFixed(2)}}</p>
+            <p class="fade-up" appFadeUp>Total</p>
+            <p class="fade-up" appFadeUp>${{( clcALlPrice() + clcALlPrice() *.2).toFixed(2)}}</p>
           </div>
-          <button class="btn check">Checkout</button>
-          <button class="btn go-shopping" [routerLink]="'/page/product'">Continue Shopping</button>
+          <button class="btn check fade-up" appFadeUp>Checkout</button>
+          <button class="btn go-shopping fade-up" appFadeUp [routerLink]="'/page/product'">Continue Shopping</button>
         </div>
       </aside>
       <section class="products">
         @for (product of cartProducts; track $index) {
-        <article class="product">
+        <article class="product fade-up" appFadeUp [style.animation-delay]=" $index * 100+ 'ms' ">
           <div class="img-box">
             <img [src]="product.thumbnail" [alt]="product.title">
           </div>

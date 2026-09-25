@@ -39,7 +39,7 @@ export class AlertService {
     setTimeout(()=>{
       this.alerts = this.alerts.filter(a => a.id !== id)
       this.alertsSub.next(this.alerts)
-    },500)
+    },100)
   }
 
 }

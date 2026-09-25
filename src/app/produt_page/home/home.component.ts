@@ -6,11 +6,12 @@ import { ICategory } from '../../core/interface/icategory';
 import { IProduct } from '../../core/interface/iproduct';
 import { ProductService } from '../../core/apis/product/product.service';
 import { ProdcutCartComponent } from '../prodcut-cart/prodcut-cart.component';
+import { FadeUpDirective } from '../../core/directive/fade-up.directive';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterLink , ProdcutCartComponent],
+  imports: [CommonModule, RouterLink, ProdcutCartComponent, FadeUpDirective],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

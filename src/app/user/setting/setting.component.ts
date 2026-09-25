@@ -17,14 +17,16 @@ import {
 
 import { AlertService } from '../../core/apis/alert.service';
 import { Iuser } from '../../core/interface/iuser';
+import { FadeUpDirective } from '../../core/directive/fade-up.directive';
 
 @Component({
   selector: 'app-setting',
   standalone: true,
   imports: [
     CommonModule,
-    ReactiveFormsModule
-  ],
+    ReactiveFormsModule,
+    FadeUpDirective
+],
   templateUrl: './setting.component.html',
   styleUrl: './setting.component.css'
 })
