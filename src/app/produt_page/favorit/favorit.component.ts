@@ -18,7 +18,6 @@ export class FavoritComponent {
 
   ngOnInit(): void {
     this.FavouriteService.favoritCart.subscribe(res => this.products = res)
-    console.log(this.products);
   }
   clearFavorivte(){
     this.FavouriteService.clearAllFavourite()

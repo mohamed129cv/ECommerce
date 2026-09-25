@@ -77,7 +77,6 @@ export class ProdcutComponent {
     }).subscribe({
       next: res => {
         this.isLodaing = true
-        console.log(this.isLodaing);
         setTimeout(() => {
 
           this.products = res.products
@@ -85,7 +84,6 @@ export class ProdcutComponent {
           this.initnumber()
           this.isLodaing = false
         }, 600)
-        console.log(this.products);
       },
       error: err => {
         console.log(err);

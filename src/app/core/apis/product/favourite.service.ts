@@ -78,6 +78,12 @@ export class FavouriteService {
     if (!alert) return
     await updateDoc(cartRef, { items: [] })
     this.favoritCart.next([])
+    this.alert.add_alert(
+      'success',
+      'removed  favorites list.',
+      'success',
+      3000
+    );
   }
   async removeFavourite(id: number) {
     let user = getAuth().currentUser
@@ -86,6 +92,12 @@ export class FavouriteService {
     let favRef = doc(db, 'favorites', user.uid)
     let alert = window.confirm('Are you sure you want to remove this product ?')
     if (!alert) return
+    this.alert.add_alert(
+      'success',
+      'removed from the favorites list.',
+      'success',
+      3000
+    );
     let items = this.favoritCart.value.filter(f => f.id !== id)
     this.favoritCart.next(items)
     await updateDoc(favRef, { items })

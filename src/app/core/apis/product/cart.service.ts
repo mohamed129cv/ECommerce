@@ -1,3 +1,4 @@
+import { AlertService } from './../alert.service';
 import { Injectable } from '@angular/core';
 import { getAuth } from 'firebase/auth';
 import { doc, getDoc, getFirestore, setDoc, updateDoc } from 'firebase/firestore';
@@ -10,7 +11,7 @@ import { Icart } from '../../interface/icart';
 })
 export class CartService {
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService ,private AlertService :AlertService) { }
   cartItems = new BehaviorSubject<Icart[]>([])
 
   async lodaCart() {
@@ -97,7 +98,12 @@ export class CartService {
     let cartRef = doc(db , 'carts' , user.uid )
     if(!window.confirm('Are you sure you want to remove this product ?')) return
     let items = this.cartItems.value.filter(i => i.productId != id)
-
+    this.AlertService.add_alert(
+      'success',
+      'Product removed from cart',
+      'success',
+      3000
+    );
   await  updateDoc(cartRef , {items})
     this.cartItems.next(items)
 
@@ -108,8 +114,12 @@ export class CartService {
     let db = getFirestore()
     let cartRef =  doc(db , 'carts' , user.uid )
     if(!window.confirm('Are you sure you want to remove this products ?')) return
-   await updateDoc(cartRef , {items: [] })
-    this.cartItems.next([])
+    this.AlertService.add_alert(
+      'success',
+      'All products removed from cart','success' ,3000)
+    await updateDoc(cartRef , {items: [] })
+
+   this.cartItems.next([])
   }
    clcQuantiy(){
     return this.cartItems.value.reduce((total , item)=>{

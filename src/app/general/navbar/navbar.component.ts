@@ -2,7 +2,7 @@ import { FavouriteService } from './../../core/apis/product/favourite.service';
 import { AuthService } from './../../core/apis/auth/auth.service';
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, HostListener } from '@angular/core';
-import { RouterLink, RouterLinkActive } from "@angular/router";
+import { Router, RouterLink, RouterLinkActive } from "@angular/router";
 import { getAuth, signOut } from 'firebase/auth';
 import { AlertService } from '../../core/apis/alert.service';
 import { FirebaseErrors } from '../../core/url/erores';
@@ -22,7 +22,7 @@ export class NavbarComponent {
   enabaleSearch: boolean = false
   isLogin: boolean = false
   isShow: boolean = false
-  constructor( private ProductService : ProductService, private AuthService: AuthService , private FavouriteService :FavouriteService  ,private cartService : CartService , private alert: AlertService, private ele: ElementRef) { }
+  constructor( private ProductService : ProductService, private AuthService: AuthService , private FavouriteService :FavouriteService  ,private cartService : CartService , private alert: AlertService, private ele: ElementRef , private router : Router) { }
 
   ngOnInit(): void {
     this.AuthService.$isLogin.subscribe(res => {
@@ -35,10 +35,11 @@ export class NavbarComponent {
       this.AuthService.setLoginState(false)
       this.cartService.cartItems.next([])
       this.FavouriteService.favoritCart.next([])
-      this.alert.add_alert('main', 'Successful operation', 'Logged out', 3000)
+      this.router.navigate(['/page/home'])
+      this.alert.add_alert('success', 'Successful operation', 'Logged out', 3000)
     }).catch(err => {
       let msg = FirebaseErrors[err.code] || 'Something went wrong'
-      this.alert.add_alert('main', msg, 'Warring', 3000)
+      this.alert.add_alert('error', msg, 'Warring', 3000)
     })
   }
   @HostListener('window:click', ['$event']) onDocumentClick(event: MouseEvent) {
